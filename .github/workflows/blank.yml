@@ -30,7 +30,7 @@ jobs:
         with:
         node-version: 20
         cache: npm
-        cache-dependency-path: cicd-argocd-eks/app/package.json
+        cache-dependency-path: cicd-argocd-eks/app/package
       - run: npm install
       - run: npx --yes eslint server.js || true
 
