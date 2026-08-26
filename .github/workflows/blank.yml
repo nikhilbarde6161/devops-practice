@@ -26,11 +26,19 @@ jobs:
         working-directory: cicd-argocd-eks/app
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
+      lint:
+  runs-on: ubuntu-latest
+  steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-node@v4
+      with:
         node-version: 20
         cache: npm
-        cache-dependency-path: cicd-argocd-eks/app/package
+        cache-dependency-path: cicd-argocd-eks/app/package-lock.json
+    - working-directory: cicd-argocd-eks/app
+      run: npm install
+    - working-directory: cicd-argocd-eks/app
+      run: npx --yes eslint server.js || true
       - run: npm install
       - run: npx --yes eslint server.js || true
 
