@@ -28,9 +28,9 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
-          cache: npm
-          cache-dependency-path: cicd-argocd-eks/app/package-lock.json
+         node-version: 20
+         cache: npm
+         cache-dependency-path: "**/package-lock.json"  # or specify the full path
       - run: npm install
       - run: npx --yes eslint server.js || true
 
