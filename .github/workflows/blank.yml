@@ -9,6 +9,7 @@ on:
     branches: [main]
     paths:
       - "cicd-argocd-eks/**"
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -31,12 +32,6 @@ jobs:
          node-version: 20
          cache: npm
          cache-dependency-path: "cicd-argocd-eks/app/package-lock.json"
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: npm
-          
 
       - name: Install dependencies
         run: npm ci
@@ -82,3 +77,4 @@ jobs:
           REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         run: |
           docker push "$REGISTRY/$ECR_REPOSITORY:${{ github.sha }}"
+
