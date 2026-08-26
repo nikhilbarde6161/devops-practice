@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
         - name: app
-          image: YOUR_DOCKERHUB_USERNAME/monitoring-demo:latest
+          image: nikhilbarde6161/monitoring-demo:latest
           ports:
             - containerPort: 3000
 ---
