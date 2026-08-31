@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/YOUR_USERNAME/devops-portfolio.git
+    repoURL: https://github.com/nikhilbarde6161/devops-portfolio.git
     targetRevision: main
     path: cicd-argocd-eks/k8s
   destination:
